@@ -258,9 +258,20 @@ class ArenaTemplate extends TemplateRoot {
       </div>`;
 
     document.getElementById("arena").innerHTML = arenaTemplate;
-    if (arena.digArena) {
-      document.getElementById('digButton').addEventListener('click', () => arena.digArena())
+    if (arena.digArena && arena.hero.accessorie.role === "diggeable") {
+      this.setDigEvent(arena)
     }
+  }
+
+  /**
+   * Initialize the event Listener on the Dig button
+   * @param {*} arena 
+   */
+  setDigEvent(arena) {
+    document.getElementById('digButton').addEventListener('click', () => {
+      const isDigged = arena.digArena();
+      if (isDigged) this.createArena(arena);
+    })
   }
 
   /**
