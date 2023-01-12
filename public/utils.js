@@ -224,10 +224,11 @@ class ArenaTemplate extends TemplateRoot {
 	 * @returns
 	 */
 	makeHeroImage(arena) {
-		return `<img title="${arena.hero.name}, portée de ${
-			arena.hero.getRange ? arena.hero.getRange() : ''
-		}" alt="${arena.hero.name}" src="${arena.hero.image}" > `;
-	}
+	    if (arena.hero.isAlive()) {
+	      return `<img title="${arena.hero.name}, portée de ${arena.hero.getRange ? arena.hero.getRange() : ""}" alt="${arena.hero.name}" src="${arena.hero.image}" >`;
+	    }
+	    return "";
+	  }
 
 	/**
 	 * Creating the HTML for the Monster
