@@ -282,7 +282,7 @@ class ArenaTemplate extends TemplateRoot {
       </div>`;
 
 		document.getElementById('arena').innerHTML = arenaTemplate;
-		if (arena.digArena && arena.hero.accessorie.role === 'diggeable') {
+		if (arena.digArena && arena.hero.accessory.role === 'diggeable') {
 			this.setDigEvent(arena);
 		}
 	}

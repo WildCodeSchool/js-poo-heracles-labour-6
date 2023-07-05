@@ -24,7 +24,7 @@ class Arena {
    * @returns Object Tile
    */
   getTile(x, y) {
-    return this.tiles.filter(tile => tile.x === x && tile.y === y)
+    return this.tiles.find(tile => tile.x === x && tile.y === y)
   }
 
   /**
@@ -56,7 +56,7 @@ class Arena {
       this.message = "Moving outside the map is not possible";
     } else if (this.CheckNoMonster(fighter)) {
       this.message = "Position already used, you can t move here";
-    } else if (tile[0] && !tile[0].isCrossable(fighter)) {
+    } else if (tile && !tile.isCrossable(fighter)) {
       this.message = "Moving over is not possible";
     } else {
       return { x, y };
